@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="fontawesom/fontawesome-free-5.15.4-web/css/all.min.css"
     />
+    <link rel="stylesheet" href="/public/style/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/public/style/app.css" />
 
     <title>Document</title>
@@ -478,11 +479,8 @@
       </div>
     </section>
     <!-- Clients -->
-    <section
-      id="Clients"
-      class="bg-gray-300 py-32 text-center flex flex-col items-center"
-    >
-      <div class="container flex flex-col items-center">
+    <section id="Clients" class="bg-gray-300 py-32">
+      <div class="container flex flex-col items-center text-center">
         <h3 class="text-green-500 text-lg mb-4 font-bold tracking-[2.5px]">
           Our Clients
         </h3>
@@ -493,14 +491,37 @@
         </h1>
       </div>
       <!-- pages -->
-      <div
-        class="svg-container flex justify-center mt-20 relative max-w-[600px] w-full p-4"
-      ></div>
-      <ul
-        class="btn-container-div flex justify-center mt-10 **:rounded-full **:cursor-pointer"
-      ></ul>
-      <div class="border-b w-1/2 border-gray-400 mt-20"></div>
-
+      <!-- Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper **:size-25 py-20 max-sm:*:justify-center">
+          <div class="swiper-slide">
+            <img src="/public/images/apple.png.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/public/images/atom.png.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/public/images/blackberry.png.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/public/images/dropbox.png.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/public/images/envato.png.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/public/images/firefox.png.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/public/images/joomla.png.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/public/images/magento.png.webp" alt="" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <!-- profiles -->
       <div class="profiles"></div>
     </section>
     <!-- contact us -->
@@ -665,6 +686,7 @@
   <script>
     AOS.init();
   </script>
+  <script src="script/swiper-bundle.min.js"></script>
   <script src="script/sweet-alert.js"></script>
   <script src="script/app.js"></script>
 </html>
