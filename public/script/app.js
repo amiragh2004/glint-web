@@ -72,81 +72,40 @@ BtnsElem.forEach(function (btn) {
     swal("Good job!", "You clicked the button!", "success");
   });
 });
-const svgList = [
-  { src: "images/apple.png.webp" },
-  { src: "images/atom.png.webp" },
-  { src: "images/blackberry.png.webp" },
-  { src: "images/dropbox.png.webp" },
-  { src: "images/envato.png.webp" },
-  { src: "images/firefox.png.webp" },
-  { src: "images/firefox.png.webp" },
-  { src: "images/atom.png.webp" },
-  { src: "images/blackberry.png.webp" },
-  { src: "images/dropbox.png.webp" },
-  { src: "images/envato.png.webp" },
-  { src: "images/apple.png.webp" },
-  { src: "images/apple.png.webp" },
-  { src: "images/firefox.png.webp" },
-  { src: "images/envato.png.webp" },
-  { src: "images/dropbox.png.webp" },
-  { src: "images/blackberry.png.webp" },
-  { src: "images/atom.png.webp" },
-  { src: "images/atom.png.webp" },
-  { src: "images/apple.png.webp" },
-  { src: "images/firefox.png.webp" },
-  { src: "images/envato.png.webp" },
-  { src: "images/dropbox.png.webp" },
-  { src: "images/blackberry.png.webp" },
-];
+const swiper = new Swiper(".mySwiper", {
+  // Optional parameters
+  slidesPerView: 6,
+  direction: "horizontal",
+  loop: true,
+  // centeredSlidesBounds: true,
+  autoplay: {
+    delay: 5000,
+  },
+  centeredSlides: true,
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
+      // spaceBetween: 20,
+    },
+    // when window width is >= 480px
+    480: {
+      slidesPerView: 4,
+      // spaceBetween: 30,
+    },
+    // when window width is >= 640px
+    860: {
+      slidesPerView: 6,
+      // spaceBetween: 40,
+    },
+  },
 
-function generateSvg(allSvgArray, svgContainer, currentPage, rowsCount) {
-  svgContainer.innerHTML = "";
-  // console.log(allSvgArray);
-  let endIndex = currentPage * rowsCount;
-  let startIndex = endIndex - rowsCount;
-  let svgArray = allSvgArray.slice(startIndex, endIndex);
-  svgArray.forEach(function (svg) {
-    // console.log(svg);
-    let imgElem = $.createElement("img");
-    imgElem.className = "w-[30%] h-[30%]";
-    imgElem.src = svg.src;
-    svgContainer.append(imgElem);
-  });
-  // console.log(svgArray);
-}
-
-function setUpPagination(allSvgArray, pagesContainer, rowsCount) {
-  pagesContainer.innerHTML = "";
-  let pageCount = Math.ceil(allSvgArray.length / rowsCount);
-  // console.log(pageCount);
-
-  for (let i = 1; i < pageCount + 1; i++) {
-    let btn = creatBtn(i, currentPage, allSvgArray);
-    pagesContainer.append(btn);
-    // console.log(btn);
-  }
-}
-function creatBtn(nowPage, currentPage, allSvgArray) {
-  let liBtnElem = $.createElement("li");
-  liBtnElem.className = "p-5";
-  let pageButton = $.createElement("button");
-  pageButton.className = "w-2.5 h-2.5 bg-green-500";
-  liBtnElem.append(pageButton);
-  if (nowPage == currentPage) {
-    pageButton.classList.add("bg-green-900");
-  }
-  pageButton.onclick = function () {
-    currentPage = nowPage;
-    generateSvg(allSvgArray, svgContainer, currentPage, rowsCount);
-    let prevBtn = $.querySelector("button.bg-green-900");
-    prevBtn.classList.remove("bg-green-900");
-    pageButton.classList.add("bg-green-900");
-  };
-  return liBtnElem;
-}
-generateSvg(svgList, svgContainer, currentPage, rowsCount);
-setUpPagination(svgList, pagesContainer, rowsCount);
-
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+    type: "bullets",
+  },
+});
 const users = [
   {
     id: 1,
